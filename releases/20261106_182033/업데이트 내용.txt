@@ -1,5 +1,8 @@
 SCM4 iPhone 포팅 - 2026-11-06 18:20:33
 
+다운로드
+  https://github.com/ghnl0619/SCM4/releases/download/20261106_182033/SCM4-v535-EXPERIMENTAL-UNSIGNED.ipa
+
 - 따라오는 몬스터와 카메라가 주인공보다 빠르게 움직이던 문제 수정
   (게스트 시계가 "시간을 몇 번 물어봤는지"에 따라 흘러서, 시계로 움직이는 것들이
    틱으로 움직이는 주인공보다 155% 속도로 돌고 있었음)
@@ -11,15 +14,12 @@ SCM4 iPhone 포팅 - 2026-11-06 18:20:33
 - 검증 추가: 캐릭터 이동 300프레임도 원본 ARM과 대조
 
 파일
-  SCM4-v470-EXPERIMENTAL-UNSIGNED.ipa  (175 MB)
-    SHA256 57e10d00ecfadad2c7602ff257a149ab7621c8537d1de3987e333b8dbbbdeb7e
   SCM4-v535-EXPERIMENTAL-UNSIGNED.ipa  (176 MB)
     SHA256 4ad6e8c50e21be416c345ca197cbf576b3ddee5e4aca5d1648bb8d1c174bf68b
   SCM4-iOS-host-source.zip  (5 MB)
     SHA256 cf5745ae535fff38a09a8d98cc4648fd5b49e91f852844fee2c798e8e2f3ac5e
 
 검증 (Windows 호스트, 같은 JIT 없는 엔진)
-  v470: 120프레임 + 세이브 60개 원본 ARM과 일치 = True, 이동 300프레임 일치 = True
   v535: 120프레임 + 세이브 60개 원본 ARM과 일치 = True, 이동 300프레임 일치 = True
 
 서명되지 않은 실험용 빌드입니다. 아이폰 설치·동작은 검증되지 않았습니다.

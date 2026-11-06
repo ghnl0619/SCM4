@@ -1,0 +1,26 @@
+# 소울카드마스터4 — iPhone 포팅
+
+안드로이드 APK의 원본 ARM 코드를 그대로 실행하는 iPhone 앱입니다. JIT을 쓰지 않습니다.
+
+## 최신 빌드
+
+**20261106_182033**
+
+- **[SCM4-v535-EXPERIMENTAL-UNSIGNED.ipa 내려받기](https://github.com/ghnl0619/SCM4/releases/download/20261106_182033/SCM4-v535-EXPERIMENTAL-UNSIGNED.ipa)**  (176 MB)
+
+[업데이트 내용](releases/20261106_182033/업데이트 내용.txt)
+
+> 서명되지 않은 실험용 빌드입니다. 아이폰에서의 설치와 동작은 검증되지 않았습니다.
+> Sideloadly 등으로 직접 서명해 설치해야 합니다.
+
+## 전체 목록
+
+| 빌드 | 내려받기 | 내용 |
+| --- | --- | --- |
+| 20261106_182033 | [IPA](https://github.com/ghnl0619/SCM4/releases/download/20261106_182033/SCM4-v535-EXPERIMENTAL-UNSIGNED.ipa) | [내용](releases/20261106_182033/업데이트 내용.txt) |
+
+## 라이선스
+
+이 앱은 GPL-2.0인 Unicorn/QEMU를 정적 링크합니다. 각 릴리스에 대응 소스
+`SCM4-iOS-host-source.zip` 이 함께 첨부되어 있습니다. 게임 자체의 코드와
+리소스는 원저작자의 것입니다.

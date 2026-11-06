@@ -1,0 +1,12 @@
+{
+  "tag": "20261106_182033",
+  "built": "2026-11-06T18:20:33",
+  "ipa": [
+    "SCM4-v535-EXPERIMENTAL-UNSIGNED.ipa"
+  ],
+  "size": {
+    "SCM4-v535-EXPERIMENTAL-UNSIGNED.ipa": 175537036,
+    "SCM4-iOS-host-source.zip": 5083669
+  },
+  "headline": "따라오는 몬스터와 카메라가 주인공보다 빠르게 움직이던 문제 수정"
+}
