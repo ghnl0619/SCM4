@@ -1,0 +1,12 @@
+{
+  "tag": "20261106_210917",
+  "built": "2026-11-06T21:09:17",
+  "ipa": [
+    "SCM4-v535-EXPERIMENTAL-UNSIGNED.ipa"
+  ],
+  "size": {
+    "SCM4-v535-EXPERIMENTAL-UNSIGNED.ipa": 175537588,
+    "SCM4-iOS-host-source.zip": 5089027
+  },
+  "headline": "실행 직후 꺼지던 문제 대응: 키체인 호출이 앱을 죽이더라도 다음 실행부터는"
+}

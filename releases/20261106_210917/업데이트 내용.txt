@@ -1,0 +1,25 @@
+SCM4 iPhone 포팅 - 2026-11-06 21:09:17
+
+다운로드
+  https://github.com/ghnl0619/SCM4/releases/download/20261106_210917/SCM4-v535-EXPERIMENTAL-UNSIGNED.ipa
+
+- 실행 직후 꺼지던 문제 대응: 키체인 호출이 앱을 죽이더라도 다음 실행부터는
+  키체인을 쓰지 않고 정상 실행되도록 자동 차단 장치를 넣었습니다.
+  세이브 백업은 파일로 계속 남습니다.
+- 어디서 꺼졌는지 파일 앱의 startup-log.txt 에 정확히 기록됩니다.
+  (첫 프레임 이후에 꺼진 경우도 다음 실행 때 화면에 표시되도록 수정)
+
+파일
+  SCM4-v535-EXPERIMENTAL-UNSIGNED.ipa  (176 MB)
+    SHA256 5a4f177e038f1822659710ba30612ea0100f7f08149f37389df03e90ed76536a
+  SCM4-iOS-host-source.zip  (5 MB)
+    SHA256 d2231149a2db049f49737ff45423bf330c1a58afc25b975802bbf1cb0410599d
+
+검증 (Windows 호스트, 같은 JIT 없는 엔진)
+  v535: 120프레임 + 세이브 60개 원본 ARM과 일치 = True, 이동 300프레임 일치 = True
+
+서명되지 않은 실험용 빌드입니다. 아이폰 설치·동작은 검증되지 않았습니다.
+Sideloadly 등으로 직접 서명해 설치해야 합니다.
+
+이 앱은 GPL-2.0 Unicorn/QEMU를 포함합니다. 대응 소스는 같은 릴리스의
+SCM4-iOS-host-source.zip 입니다.
