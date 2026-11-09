@@ -1,0 +1,11 @@
+{
+  "tag": "20261109_215141",
+  "built": "2026-11-09T21:51:41",
+  "ipa": [
+    "SCM4-v601-EXPERIMENTAL-UNSIGNED.ipa"
+  ],
+  "size": {
+    "SCM4-v601-EXPERIMENTAL-UNSIGNED.ipa": 175869205
+  },
+  "headline": "장시간 플레이에서 메모리가 조각나던 문제 수정 (오류와 UI 잔상의 원인)"
+}
