@@ -1,0 +1,73 @@
+SCM4 iPhone 포팅 - 2026-11-09 15:33:19
+
+다운로드
+  https://github.com/ghnl0619/SCM4/releases/download/20261109_153319/SCM4-v601-EXPERIMENTAL-UNSIGNED.ipa
+
+- 타이틀 화면(오버레이) 상태를 진단 기록에 남깁니다
+
+== 왜 이걸 넣었는가 ==
+
+타이틀 화면은 게임이 직접 그리는 것이 아닙니다.
+게임은 화면 이름만 알려주고(suishow), 원본 PNG를 합성해 게임 위에
+얹는 것은 앱 쪽(SCMOverlayView) 일입니다.
+
+그런데 지금까지 제가 쓰던 모든 프로브는 게임이 그린 화면만 저장했습니다.
+오버레이 계층은 한 번도 기록된 적이 없습니다.
+그래서 기기에서 오버레이가 실패해도 저는 알 방법이 없었고, 실패해도
+NSLog 로만 남아서 폰에서는 보이지도 않았습니다.
+
+이제 진단 기록에 남습니다.
+
+    overlay 'title_ani_firestorm.sui' shown (1 paints)
+    overlay 'title_ani_firestorm.sui' FAILED: <이유>
+
+이름당 한 번만 남기므로 기록이 넘치지 않습니다.
+
+== 확인한 사실 ==
+
+게임이 시작할 때 요청하는 오버레이는 하나뿐입니다.
+
+    frame 0   hideall
+    frame 0   show title_ani_firestorm.sui   (paints 1)
+    frame 40  hideall
+
+title_ani_firestorm.sui 는 다음 세 장을 합성합니다.
+    title_1280-720.png      타이틀 그림
+    server_firestorm.png    서버 선택
+    touchscreen.png         (paints 가 홀수라 이번에는 제외)
+
+즉 첫 화면은 "타이틀 + 서버 선택" 이어야 합니다.
+
+오버레이 이미지는 모두 정상입니다.
+    5장 전부 표준 PNG 1280x720, iOS 가 디코딩 못 하는 형식(CgBI) 아님
+    빌드된 앱 안에 전부 들어 있음
+
+로고 화면(logo_ani.sui / Mobicle_Logo_1280.png)은
+    앱이 지원은 하고 파일도 들어 있지만
+    이 오프라인 빌드의 게임 코드가 시작할 때 요청하지 않습니다
+    (문자열 자체는 libLauncher.so 안에 존재하므로, 요청하는 경로가
+     따로 있거나 온라인 전용일 가능성이 있습니다)
+
+== 확인 부탁드립니다 ==
+
+지금 빌드를 실행하시면 첫 화면에 서버 선택 그림이 보이는지,
+그리고 파일 앱의 startup-log.txt 에 위 overlay 줄이 남았는지
+알려주시면 "빠진 화면"이 오버레이 문제인지 아닌지 확정됩니다.
+
+== 정확성 ==
+
+    120프레임 + 세이브 60개가 원본 ARM 코드와 완전히 동일
+
+파일
+  SCM4-v601-EXPERIMENTAL-UNSIGNED.ipa  (176 MB)
+    SHA256 7b4940e8e75858d5270478c9fa2adada0bf2aaac35259451976609d707e4b1aa
+
+검증 (Windows 호스트, 같은 JIT 없는 엔진)
+  v601: 120프레임 + 세이브 60개 원본 ARM과 일치 = True, 이동 300프레임 일치 = True
+
+서명되지 않은 실험용 빌드입니다. 아이폰 설치·동작은 검증되지 않았습니다.
+SideStore 등으로 직접 서명해 설치해야 합니다.
+
+이 앱은 GPL-2.0 Unicorn/QEMU를 포함합니다. 대응 소스는 저장소에 있습니다.
+  https://github.com/ghnl0619/SCM4/raw/main/source/SCM4-iOS-host-source.zip
+  SHA256 1225e8af4692ccac7787cb3ff7a574ce84de5fd56afa6d395c9ecd4741bb8457
