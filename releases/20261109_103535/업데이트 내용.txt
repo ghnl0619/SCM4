@@ -1,0 +1,48 @@
+SCM4 iPhone 포팅 - 2026-11-09 10:35:35
+
+다운로드
+  https://github.com/ghnl0619/SCM4/releases/download/20261109_103535/SCM4-v535-EXPERIMENTAL-UNSIGNED.ipa
+
+- iOS 27에서 앱이 실행되지 않던 문제 해결
+
+최소 테스트 앱이 아이폰 듀오(iOS 27.2)에서 6단계 전부 통과하는 것을
+확인하고, 그 설정을 게임에 그대로 옮긴 빌드입니다.
+
+실행을 막던 것
+  MH_PIE 플래그 복구
+      이전 빌드에서 바이너리 정리 코드가 상수를 잘못 써서 이 플래그를
+      지우고 있었습니다. iOS는 위치 독립이 아닌 실행 파일을 exec 단계에서
+      거부하고 크래시 로그조차 남기지 않습니다.
+      빌드 스크립트에 검사를 넣어 다시는 나갈 수 없게 했습니다.
+
+  __TEXT 세그먼트의 filesize 를 vmsize 와 일치시킴
+      실행 가능 페이지는 파일에서 와야 합니다. 어긋나 있으면 뒷부분이
+      익명 메모리로 매핑됩니다. Apple 바이너리와 직접 비교해서 찾았습니다.
+
+그 밖에 바로잡은 것
+  모든 세그먼트를 16KB 페이지에 정렬 (빈틈 없이 맞물리도록)
+  코드 서명 구조 추가 - LC_CODE_SIGNATURE, _CodeSignature, PkgInfo
+      실제 IPA가 모두 갖고 있는 구조이고, 이전 빌드에는 아예 없었습니다
+  UIScene 생명주기로 전환
+      Apple이 iOS 26에서 폐기 예고한 구형 방식을 쓰고 있었습니다
+  Info.plist 에 UIRequiredDeviceCapabilities, CFBundleInfoDictionaryVersion 추가
+
+게임 동작은 바뀌지 않았습니다
+  120프레임 + 세이브 60개가 원본 ARM 코드와 완전히 동일
+  이동 300프레임도 완전히 동일
+  위 수정은 전부 링크 이후 단계와 앱 껍데기에만 해당합니다
+
+파일
+  SCM4-v535-EXPERIMENTAL-UNSIGNED.ipa  (176 MB)
+    SHA256 74acd6fd378e9d328fb997d7b306387b018b264e52e521bbec7f4b70b517c9b7
+  SCM4-iOS-host-source.zip  (5 MB)
+    SHA256 04bd838a0a6003e9f74c90da64fb48963d8c6de639c3dbd91f94844d2c32e9c1
+
+검증 (Windows 호스트, 같은 JIT 없는 엔진)
+  v535: 120프레임 + 세이브 60개 원본 ARM과 일치 = True, 이동 300프레임 일치 = True
+
+서명되지 않은 실험용 빌드입니다. 아이폰 설치·동작은 검증되지 않았습니다.
+Sideloadly 등으로 직접 서명해 설치해야 합니다.
+
+이 앱은 GPL-2.0 Unicorn/QEMU를 포함합니다. 대응 소스는 같은 릴리스의
+SCM4-iOS-host-source.zip 입니다.
