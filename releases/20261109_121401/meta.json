@@ -1,0 +1,11 @@
+{
+  "tag": "20261109_121401",
+  "built": "2026-11-09T12:14:01",
+  "ipa": [
+    "SCM4-v601-EXPERIMENTAL-UNSIGNED.ipa"
+  ],
+  "size": {
+    "SCM4-v601-EXPERIMENTAL-UNSIGNED.ipa": 175866584
+  },
+  "headline": "코드 리뷰: 버그 수정, 멈춤 제거, 발열 제어 개선"
+}
