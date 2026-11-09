@@ -1,0 +1,49 @@
+SCM4 iPhone 포팅 - 2026-11-09 10:55:18
+
+다운로드
+  https://github.com/ghnl0619/SCM4/releases/download/20261109_105518/SCM4-v601-EXPERIMENTAL-UNSIGNED.ipa
+
+- v601 추가 (CUSTOM_DUNGEON_BACKGROUNDS_FIX)
+
+새 APK의 기능이 반영된 빌드입니다.
+
+이식이 안전한 이유 (실측)
+  libLauncher.so 심볼 5,249개가 전부 같은 주소에 있음 (추가·삭제·이동 0)
+  포팅이 가로채는 17개 지점이 전부 바이트 단위로 동일
+      _putPixel, fillRect, _putPIxelMemcopy, XImage::_setData,
+      cCreatureMagicCSU, isItem, BG_B32ToB565, makeUID,
+      MyLzmaDecode, confirmUID, b_jarGetResource, b_jarFindJarEntry,
+      libskia 타이머 3종
+  바뀐 코드는 듀얼·상점·던전보상 쪽 함수 8개와
+      심볼이 없는 커스텀 콘텐츠 영역뿐
+  게스트 리소스 7,793개 (v535 대비 220개 증가)
+
+검증
+  120프레임 + 세이브 60개가 원본 ARM 코드와 완전히 동일
+  이동 300프레임도 완전히 동일
+  속도 7.93배
+
+세이브가 유지됩니다
+  번들 ID를 v535와 동일하게 유지했습니다. 덮어쓰기 업데이트가 되므로
+  기존 진행도와 키체인 백업이 그대로 남습니다.
+  번들 ID를 바꾸면 컨테이너와 키체인 접근 그룹이 달라져 처음부터
+  다시 시작하게 됩니다.
+
+iOS 27 실행 수정은 직전 빌드와 동일하게 포함되어 있습니다
+  MH_PIE, __TEXT filesize, 16KB 세그먼트 정렬,
+  코드 서명 구조, UIScene 생명주기
+
+파일
+  SCM4-v601-EXPERIMENTAL-UNSIGNED.ipa  (176 MB)
+    SHA256 33dc2eb5dce91c8031fbe5c68b83aa41c55c8e0add3bb3440f65592c8fe8e4f0
+  SCM4-iOS-host-source.zip  (5 MB)
+    SHA256 b7d96dbcf3b23853a7f627988252a391ddbad9adc9d5db1f99d3a8c4437a81d5
+
+검증 (Windows 호스트, 같은 JIT 없는 엔진)
+  v601: 120프레임 + 세이브 60개 원본 ARM과 일치 = True, 이동 300프레임 일치 = True
+
+서명되지 않은 실험용 빌드입니다. 아이폰 설치·동작은 검증되지 않았습니다.
+Sideloadly 등으로 직접 서명해 설치해야 합니다.
+
+이 앱은 GPL-2.0 Unicorn/QEMU를 포함합니다. 대응 소스는 같은 릴리스의
+SCM4-iOS-host-source.zip 입니다.
