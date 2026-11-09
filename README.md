@@ -25,6 +25,6 @@
 
 ## 라이선스
 
-이 앱은 GPL-2.0인 Unicorn/QEMU를 정적 링크합니다. 각 릴리스에 대응 소스
-`SCM4-iOS-host-source.zip` 이 함께 첨부되어 있습니다. 게임 자체의 코드와
+이 앱은 GPL-2.0인 Unicorn/QEMU를 정적 링크합니다. 대응 소스는
+[`source/SCM4-iOS-host-source.zip`](source/SCM4-iOS-host-source.zip) 에 있습니다. 게임 자체의 코드와
 리소스는 원저작자의 것입니다.
