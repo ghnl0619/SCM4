@@ -4,11 +4,11 @@
 
 ## 최신 빌드
 
-**20261110_022337**
+**20261110_115117**
 
-- **[SCM4-v601-EXPERIMENTAL-UNSIGNED.ipa 내려받기](https://github.com/ghnl0619/SCM4/releases/download/20261110_022337/SCM4-v601-EXPERIMENTAL-UNSIGNED.ipa)**  (176 MB)
+- **[SCM4-v601-EXPERIMENTAL-UNSIGNED.ipa 내려받기](https://github.com/ghnl0619/SCM4/releases/download/20261110_115117/SCM4-v601-EXPERIMENTAL-UNSIGNED.ipa)**  (176 MB)
 
-[업데이트 내용](releases/20261110_022337/%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8%20%EB%82%B4%EC%9A%A9.txt)
+[업데이트 내용](releases/20261110_115117/%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8%20%EB%82%B4%EC%9A%A9.txt)
 
 > 서명되지 않은 실험용 빌드입니다. 아이폰에서의 설치와 동작은 검증되지 않았습니다.
 > Sideloadly 등으로 직접 서명해 설치해야 합니다.
@@ -17,6 +17,7 @@
 
 | 빌드 | 내려받기 | 내용 |
 | --- | --- | --- |
+| 20261110_115117 | [IPA](https://github.com/ghnl0619/SCM4/releases/download/20261110_115117/SCM4-v601-EXPERIMENTAL-UNSIGNED.ipa) | [내용](releases/20261110_115117/%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8%20%EB%82%B4%EC%9A%A9.txt) |
 | 20261110_022337 | [IPA](https://github.com/ghnl0619/SCM4/releases/download/20261110_022337/SCM4-v601-EXPERIMENTAL-UNSIGNED.ipa) | [내용](releases/20261110_022337/%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8%20%EB%82%B4%EC%9A%A9.txt) |
 | 20261109_215141 | [IPA](https://github.com/ghnl0619/SCM4/releases/download/20261109_215141/SCM4-v601-EXPERIMENTAL-UNSIGNED.ipa) | [내용](releases/20261109_215141/%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8%20%EB%82%B4%EC%9A%A9.txt) |
 | 20261109_163539 | [IPA](https://github.com/ghnl0619/SCM4/releases/download/20261109_163539/SCM4-v601-EXPERIMENTAL-UNSIGNED.ipa) | [내용](releases/20261109_163539/%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8%20%EB%82%B4%EC%9A%A9.txt) |

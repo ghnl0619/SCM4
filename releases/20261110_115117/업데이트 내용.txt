@@ -1,0 +1,70 @@
+SCM4 iPhone 포팅 - 2026-11-10 11:51:17
+
+다운로드
+  https://github.com/ghnl0619/SCM4/releases/download/20261110_115117/SCM4-v601-EXPERIMENTAL-UNSIGNED.ipa
+
+The duel board now interprets 68.6% less than it did, and the kernel that was
+supposed to be doing that work turns out to have been switched off there.
+
+XGraphics::_putPixel is the blitter, not a per-pixel helper, and its inner loop
+was 37.93% of everything a duel interprets - even though a kernel has been
+hooked on that loop since long before this release. Counting why it declined
+answered it in one run: of twenty million calls, 19,879,470 asked for blend
+mode 10 and 120,530 were accelerated. The kernel translated modes 5, 6 and 9,
+chosen against the story map and the menus, and the duel board had never been
+profiled. The same blind spot the gates had, in the kernels.
+
+Mode 10 is colour dodge: per component, (destination << quantum) divided by
+(maximum + 1 - source), clipped to the maximum. Three signed divisions a pixel
+through __aeabi_idiv, which is what made it so expensive to interpret. The
+translation mirrors the bridge the guest itself calls, so a zero divisor
+returns zero rather than being guarded against, INT32_MIN / -1 is formed by
+negation because C leaves it undefined where ARM wraps, and the shift is done
+on the unsigned pattern for the same reason.
+
+  original                      5,088,709 interpreted bytes per duel frame
+  after the cover kernel        2,670,066
+  after mode 10                 1,597,085
+
+The story map, for comparison, costs 617,215. The duel was 8.2x that and is now
+2.6x. Speed-up ratios from these runs are not quoted: the machine was busy and
+the original-ARM baseline inflated from 1,342s to 2,857s on an unchanged story
+gate. Interpreted bytes do not move with load.
+
+Gates, all differential against the original ARM, 5,423 frames with no pixel
+differing anywhere:
+
+  story map      1259 / 1259 identical
+  duel board      581 /  581 identical
+  dungeon->tower 2783 / 2783 identical   (new - this release)
+  release         120 + 300 identical, 60 saves identical
+
+The dungeon gate is new because a blend change reaches the dungeon band as well
+as the duel, and that band is where the leftover-chest report lives. It is now
+covered rather than assumed.
+
+Unchanged and still open: the dungeon screen's difficulty entries do nothing,
+on the device as well as here. A grid of taps over the whole screen responds
+only in the chest column, so the hit boxes are where they are drawn and the
+entries simply have none. v601 adds classes4.dex - an Android dialog listing
+optional dungeons, gated on a preference named optional-dungeons-unlocked -
+and this port runs the native game without a Java layer, so that dialog does
+not exist and the flag is never set. The native side is present and current:
+libskia carries scm_dungeon71, scm_dungeon_reset80, scm_dungeon_exit71 and a
+log line reading "dungeon-offline: ready=%u enabled=%u unlocked=%u
+stages=%u,%u,%u,%u,%u active=%u", five stages for the five difficulties.
+Rebuilding that selection natively is the next piece of work.
+
+파일
+  SCM4-v601-EXPERIMENTAL-UNSIGNED.ipa  (176 MB)
+    SHA256 be60c08819bc078ac9b3ef2f5f93ce61c6316d60d6ce07d7ee690cbf57e117d8
+
+검증 (Windows 호스트, 같은 JIT 없는 엔진)
+  v601: 120프레임 + 세이브 60개 원본 ARM과 일치 = True, 이동 300프레임 일치 = True
+
+서명되지 않은 실험용 빌드입니다. 아이폰 설치·동작은 검증되지 않았습니다.
+SideStore 등으로 직접 서명해 설치해야 합니다.
+
+이 앱은 GPL-2.0 Unicorn/QEMU를 포함합니다. 대응 소스는 저장소에 있습니다.
+  https://github.com/ghnl0619/SCM4/raw/main/source/SCM4-iOS-host-source.zip
+  SHA256 5012ba93879c4a1051f7b4bbb099af430d5b6f30825b3ce934cfa70de8bf1d96
