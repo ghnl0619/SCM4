@@ -1,0 +1,13 @@
+{
+  "tag": "20261110_212924",
+  "built": "2026-11-10T21:29:24",
+  "ipa": [
+    "SCM4-v601-DUNGEON-EXPERIMENTAL-UNSIGNED.ipa",
+    "SCM4-v601-EXPERIMENTAL-UNSIGNED.ipa"
+  ],
+  "size": {
+    "SCM4-v601-DUNGEON-EXPERIMENTAL-UNSIGNED.ipa": 175877905,
+    "SCM4-v601-EXPERIMENTAL-UNSIGNED.ipa": 175870410
+  },
+  "headline": "던전을 고를 수 있는 두 번째 IPA를 함께 올립니다. 기존 빌드는 그대로입니다."
+}
