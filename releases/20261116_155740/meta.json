@@ -1,0 +1,11 @@
+{
+  "tag": "20261116_155740",
+  "built": "2026-11-16T15:57:40",
+  "ipa": [
+    "SCM4-v808-EXPERIMENTAL-UNSIGNED.ipa"
+  ],
+  "size": {
+    "SCM4-v808-EXPERIMENTAL-UNSIGNED.ipa": 176331642
+  },
+  "headline": "화면을 자주 바꾸다 보면 UI 가 깨지고 터치가 안 먹히는 문제를 고쳤습니다."
+}
